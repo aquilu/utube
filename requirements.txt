@@ -3,11 +3,67 @@
 #  https://github.com/aquilu/utube
 # =============================================================================
 #
-#  Install all dependencies:
+#  QUICK SETUP GUIDE (follow steps 1 → 2 → 3 → 4)
+#
+#  ─────────────────────────────────────────────────
+#  STEP 1: Install Python (if you don't have it)
+#  ─────────────────────────────────────────────────
+#
+#    Download Python 3.8 or newer from:
+#      https://www.python.org/downloads/
+#
+#    IMPORTANT (Windows): During installation, check the box that says:
+#      [✓] "Add Python to PATH"
+#
+#    Verify installation by opening a terminal and running:
+#      python --version
+#
+#  ─────────────────────────────────────────────────
+#  STEP 2: Clone the repository
+#  ─────────────────────────────────────────────────
+#
+#    git clone https://github.com/aquilu/utube.git
+#    cd utube
+#
+#  ─────────────────────────────────────────────────
+#  STEP 3 (Optional but recommended): Create a virtual environment
+#  ─────────────────────────────────────────────────
+#
+#    This keeps uTube's dependencies isolated from your system Python.
+#
+#    Create:
+#      python -m venv venv
+#
+#    Activate:
+#      Windows (CMD):        venv\Scripts\activate
+#      Windows (PowerShell): venv\Scripts\Activate.ps1
+#      Linux / macOS:        source venv/bin/activate
+#
+#    You'll see (venv) at the start of your terminal prompt when active.
+#
+#    To deactivate later:
+#      deactivate
+#
+#  ─────────────────────────────────────────────────
+#  STEP 4: Install dependencies
+#  ─────────────────────────────────────────────────
+#
 #    pip install -r requirements.txt
 #
-#  Or install individually:
-#    pip install yt-dlp
+#    Or install individually:
+#      pip install yt-dlp
+#
+#  ─────────────────────────────────────────────────
+#  DONE! Now run the app:
+#  ─────────────────────────────────────────────────
+#
+#    python youtube_downloader.py
+#
+#  ─────────────────────────────────────────────────
+#  UPDATING (when videos stop downloading):
+#  ─────────────────────────────────────────────────
+#
+#    pip install -U yt-dlp
 #
 # =============================================================================
 
@@ -18,10 +74,20 @@ yt-dlp>=2024.01.01
 # =============================================================================
 #  OPTIONAL (system-level, not pip-installable):
 #
-#  ffmpeg  - Required for merging separate video/audio streams
+#  ffmpeg  - Required only for merging separate video/audio streams
+#            Most videos work fine without it, but some 1080p+ videos
+#            need ffmpeg to combine the video and audio tracks.
+#
 #            Install via your system package manager:
 #              Windows:  winget install ffmpeg
+#                   or:  choco install ffmpeg
 #              macOS:    brew install ffmpeg
-#              Linux:    sudo apt install ffmpeg
-#            Download: https://ffmpeg.org/download.html
+#              Linux:    sudo apt install ffmpeg    (Ubuntu/Debian)
+#                   or:  sudo dnf install ffmpeg    (Fedora)
+#                   or:  sudo pacman -S ffmpeg       (Arch)
+#
+#            Download manually: https://ffmpeg.org/download.html
+#
+#            Verify installation:
+#              ffmpeg -version
 # =============================================================================
