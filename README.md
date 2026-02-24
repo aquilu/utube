@@ -34,6 +34,7 @@
 - [Roadmap](#-roadmap)
 - [Development / From Source](#-development--from-source)
 - [Troubleshooting](#-troubleshooting)
+- [Changelog](#-changelog)
 - [Docs](#-docs)
 - [Special Thanks](#-special-thanks)
 
@@ -41,20 +42,23 @@
 
 ## :zap: TL;DR (Quick Start)
 
-Have Python 3.8+ installed? You're 10 seconds away:
+Have Python 3.8+ installed? You're 30 seconds away:
 
 ```bash
-# Clone
+# 1. Clone the repo
 git clone https://github.com/aquilu/utube.git
 cd utube
 
-# Run
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Run it
 python youtube_downloader.py
 ```
 
 That's it. Paste a URL. Pick a quality. Watch it download. **Real file on your real hard disk.**
 
-> First run? `yt-dlp` will install itself automatically. Zero config needed.
+> **Forgot step 2?** No worries — `yt-dlp` will auto-install on first run. But `requirements.txt` is the clean way.
 
 ---
 
@@ -83,24 +87,62 @@ That's it. Paste a URL. Pick a quality. Watch it download. **Real file on your r
 | **pip**     | Latest  | Comes with Python |
 | **ffmpeg**  | Latest  | Required only for merging streams ([Download](https://ffmpeg.org/download.html)) |
 
-### Option A: Clone (Recommended)
+### Option A: Clone + Install (Recommended)
 
 ```bash
+# Clone the repository
 git clone https://github.com/aquilu/utube.git
 cd utube
+
+# Install dependencies from requirements.txt
+pip install -r requirements.txt
+
+# (Optional) Verify installation
+python -c "import yt_dlp; print('yt-dlp version:', yt_dlp.version.__version__)"
 ```
 
-### Option B: Direct Download
+> **That's it.** You're ready to run `python youtube_downloader.py`.
 
-Download `youtube_downloader.py` directly from the [releases page](https://github.com/aquilu/utube/releases) or just grab the raw file.
+### Option B: Clone + Virtual Environment (Cleanest)
 
-### Option C: pip install dependency manually
+```bash
+# Clone the repository
+git clone https://github.com/aquilu/utube.git
+cd utube
+
+# Create a virtual environment
+python -m venv venv
+
+# Activate it
+source venv/bin/activate      # Linux / macOS
+venv\Scripts\activate          # Windows (CMD)
+venv\Scripts\Activate.ps1      # Windows (PowerShell)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run
+python youtube_downloader.py
+```
+
+### Option C: Direct Download (No git needed)
+
+1. Download [`youtube_downloader.py`](https://raw.githubusercontent.com/aquilu/utube/main/youtube_downloader.py) and [`requirements.txt`](https://raw.githubusercontent.com/aquilu/utube/main/requirements.txt)
+2. Place both files in the same folder
+3. Open a terminal in that folder and run:
+
+```bash
+pip install -r requirements.txt
+python youtube_downloader.py
+```
+
+### Option D: One-liner (YOLO mode)
 
 ```bash
 pip install yt-dlp
 ```
 
-> **Note:** If you skip this step, uTube will install `yt-dlp` automatically on first run. We got you covered.
+> **Note:** If you skip `requirements.txt`, uTube will install `yt-dlp` automatically on first run. We got you covered either way.
 
 ---
 
@@ -412,14 +454,17 @@ python -m venv venv
 source venv/bin/activate      # Linux/macOS
 venv\Scripts\activate          # Windows
 
-# Install dependency
-pip install yt-dlp
+# Install dependencies
+pip install -r requirements.txt
 
 # Run
 python youtube_downloader.py
 
 # Run with a specific Python version
 python3.11 youtube_downloader.py
+
+# Update yt-dlp to latest version
+pip install -U yt-dlp
 ```
 
 ### Project Structure
@@ -427,11 +472,14 @@ python3.11 youtube_downloader.py
 ```
 utube/
   ├── youtube_downloader.py   # The entire app. That's it. That's the project.
+  ├── requirements.txt        # Python dependencies (pip install -r requirements.txt)
+  ├── CHANGELOG.md            # Version history and release notes
+  ├── .gitignore              # Git ignore rules (videos, caches, IDE files)
   ├── README.md               # You're reading it.
   └── LICENSE                  # MIT
 ```
 
-> Yes, it's one file. That's the point. No build step. No transpilation. No Docker required. No 47 config files. **Just Python.**
+> Yes, the app is one file. That's the point. No build step. No transpilation. No Docker required. No 47 config files. **Just Python.**
 
 ---
 
@@ -445,6 +493,16 @@ utube/
 | Permission error | Run from a folder where you have write access |
 | URL not recognized | Make sure URL contains `youtube.com` or `youtu.be` |
 | No qualities shown | Video may be age-restricted or region-locked |
+
+---
+
+## :scroll: Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed history of all releases and changes.
+
+| Version | Date | Highlights |
+|---------|------|------------|
+| **1.0.0** | 2025-02-24 | Initial release — interactive CLI, quality picker, auto-install, smart merging |
 
 ---
 

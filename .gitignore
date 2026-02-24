@@ -1,0 +1,50 @@
+# =============================================================================
+#  uTube .gitignore
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Downloaded videos (don't commit media files)
+*.mp4
+*.mkv
+*.webm
+*.avi
+*.mov
+*.mp3
+*.m4a
+*.wav
+
+# Claude Code
+.claude/
+
+# Misc
+*.log
+*.tmp

@@ -1,0 +1,27 @@
+# =============================================================================
+#  uTube - YouTube Video Downloader
+#  https://github.com/aquilu/utube
+# =============================================================================
+#
+#  Install all dependencies:
+#    pip install -r requirements.txt
+#
+#  Or install individually:
+#    pip install yt-dlp
+#
+# =============================================================================
+
+# Core dependency - YouTube extraction engine
+# https://github.com/yt-dlp/yt-dlp
+yt-dlp>=2024.01.01
+
+# =============================================================================
+#  OPTIONAL (system-level, not pip-installable):
+#
+#  ffmpeg  - Required for merging separate video/audio streams
+#            Install via your system package manager:
+#              Windows:  winget install ffmpeg
+#              macOS:    brew install ffmpeg
+#              Linux:    sudo apt install ffmpeg
+#            Download: https://ffmpeg.org/download.html
+# =============================================================================
